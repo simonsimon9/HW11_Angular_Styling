@@ -1,10 +1,20 @@
 import { Component } from '@angular/core';
-
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+selector: 'app-root',
+template: `<label [class.danger]="foodWarning">Has food allergy.</label>
+<input type="checkbox" [(ngModel)]="foodWarning" />
+`,
+styles: [`
+.danger {
+color:orange;
+font-weight:bold;
+}`
+]
 })
 export class AppComponent {
-  title = 'angular_css';
+foodWarning:Boolean
+constructor() {
+// Set default value to false.
+this.foodWarning = false;
+}
 }
